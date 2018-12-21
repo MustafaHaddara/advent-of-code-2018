@@ -1,0 +1,31 @@
+    goto init
+loop:
+    reg3 = 1
+loop1:
+    reg5 = 1
+loop2:
+    if (reg3 * reg5) == reg2
+        reg0 = reg0 + reg3
+    reg5 = reg5 + 1
+    if reg5 <= reg2
+        goto loop2
+    reg3 = reg3 + 1
+    if reg3 > reg2
+        end
+    goto loop1
+
+; seed r2, r4 with some data
+; r2 = 10551403
+; r4 = 10550400
+init:
+    reg2 += 2
+    reg2 = 2 * 2 * 19 * 11 ;836
+    reg4 = 7 * 22 + 13 ;167
+    reg2 = reg2 + reg4 ;1003
+    if reg0 == 0
+        goto loop
+    reg4 = 27
+    reg4 = ((reg4 * 28) + 29) * 13440
+    reg2 = reg2 + reg4
+    reg0 = 0
+    goto loop
